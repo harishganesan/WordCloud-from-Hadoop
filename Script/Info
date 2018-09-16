@@ -1,0 +1,5 @@
+mapper.py - > mapper Code
+reducer.py -> reducer Code
+NY2.py -> NY Times Article collection javascript
+tweet2.py -> Twitter tweets collection script
+text_sort.py -> To sort the reducer output according to the count

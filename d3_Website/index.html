@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <title>Word Cloud 2</title>
+  <meta charset="UTF-8">
+  <script src="lib/d3/d3.js"></script>
+  <script src="lib/d3/d3.layout.cloud.js"></script>
+  <script src="d3.wordcloud.js"></script>
+  <script>
+    function trump() {
+      console.log("in trump")
+      document.getElementById("wordcloud").innerHTML = ''
+      document.getElementById("wordcloud2").innerHTML = ''
+      list = []
+      d3.csv("./Data/outputTrumpRussia.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud').words(data).start()
+        console.log(data);
+      });
+      list = []
+      d3.csv("./Data/trump_tweet_sorted.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud2').words(data).start()
+        console.log(data);
+      });
+    }
+
+    function nba() {
+      console.log("in nba")
+      document.getElementById("wordcloud").innerHTML = ''
+      document.getElementById("wordcloud2").innerHTML = ''
+      list = []
+      d3.csv("./Data/outputNBA.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud').words(data).start()
+        console.log(data);
+      });
+      list = []
+      d3.csv("./Data/nba_tweet_sorted.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud2').words(data).start()
+        console.log(data);
+      });
+    }
+
+    function blockchain() {
+      console.log("in blockchain")
+      document.getElementById("wordcloud").innerHTML = ''
+      document.getElementById("wordcloud2").innerHTML = ''
+      list = []
+      d3.csv("./Data/outputBlockchain.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud').words(data).start()
+        console.log(data);
+      });
+      list = []
+      d3.csv("./Data/blockchain_tweet_sorted.csv", function(data) {
+        d3.wordcloud().size([800, 400]).selector('#wordcloud2').words(data).start()
+        console.log(data);
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div> <label>Topic: </label> <label><input type="radio" name="nyRadio" value="1" onclick="trump()"> trumprussia</label>
+    <label><input type="radio" name="nyRadio" value="2" onclick="nba()"> nba</label>
+    <label><input type="radio" name="nyRadio" value="3" onclick="blockchain()"> blockchain</label>
+  </div>
+  <div id = 'name'>
+        <label>NY Times wordCloud: </label>
+  </div>
+  <div id="wordcloud">
+  </div>
+  <div id = 'name2'>
+        <label>Twitter wordCloud: </label>
+  </div>
+  <div id="wordcloud2">
+  </div>
+</body>
+
+</html>
